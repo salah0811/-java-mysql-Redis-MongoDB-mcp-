@@ -11,6 +11,9 @@
 <p align="center">
   <b>企业级多控制平台解决方案</b><br>
   <span>整合 Spring AI 与主流数据库的一站式服务</span>
+  <br>
+  <br>
+  <span>用spring AI搭建的mcp服务端，集成的mysql、Redis、MongoDB数据库</span>
 </p>
 
 ## 🌟 核心特性
