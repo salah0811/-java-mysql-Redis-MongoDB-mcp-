@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: spring-boot-ai-mongo-mcp-server
+
+  main:
+    banner-mode: off
+    web-application-type: servlet
+
+  # MongoDB ??
+  data:
+    mongodb:
+      uri: mongodb://admin:sl4^,Hi(@172.1.5:2017/lzh?authSource=admin
+
+  # Redis ??
+  redis:
+    host: 172.1
+    port: 6379
+    password:
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 2
+        max-wait: 2000ms
+
+  # ??????MySQL?
+  datasource:
+    url: jdbc:mysql://172.5:3306/devic?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: eb
+    password: 66f@
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # AI MCP Server ?????
+  ai:
+    mcp:
+      server:
+        name: mongo-mcp-server
+        version: 0.0.1
+
+# ?????
+server:
+  port: 8080
+
+# ????
+logging:
+  file:
+    name: ./logs/spring-boot-ai-mongo-mcp-server.log
+  level:
+    root: DEBUG
+    org.springframework: DEBUG

@@ -15,6 +15,8 @@
 
 ## 🌟 核心特性
 
+<div align="center">
+
 | 类别           | 功能亮点                                                                 |
 |----------------|--------------------------------------------------------------------------|
 | **AI 核心**    | 🤖 Spring AI 深度整合 • 🧠 多模型支持 • 🔄 异步处理                      |
@@ -23,7 +25,11 @@
 | **安全认证**   | 🔐 JWT 鉴权 • 🛡️ 角色权限控制 • 📛 请求限流                             |
 | **开发支持**   | 📝 Swagger 文档 • ✉️ 事件驱动架构 • � CI/CD 就绪                        |
 
+</div>
+
 ## 🚀 快速开始
+
+<div align="center">
 
 ### 前置要求
 - JDK 17+
@@ -32,7 +38,7 @@
 - MySQL 8.0+
 - MongoDB 4.4+
 - Redis 6.0+
-
+</div>
 ```bash
 # 1. 克隆项目
 git clone https://github.com/yourusername/spring-ai-mcp.git
@@ -48,6 +54,8 @@ mvn clean package
 java -jar target/spring-ai-mcp.jar
 
 📂 项目结构
+<div align="center">
+text
 
 spring-ai-mcp/
 ├── src
@@ -65,10 +73,9 @@ spring-ai-mcp/
 ├── docs                      # 文档资源
 └── scripts                   # 部署脚本
 
-
-
-
+</div>
 🔍 接口示例
+<div align="center">
 java
 
 @RestController
@@ -88,9 +95,9 @@ public class AiController {
     }
 }
 
-
-
+</div>
 📊 数据库整合
+<div align="center">
 Redis 配置示例
 yaml
 
@@ -111,7 +118,9 @@ spring:
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+</div>
 🤝 参与贡献
+<div align="center">
 
 我们欢迎所有形式的贡献！请遵循以下流程：
 
@@ -125,12 +134,9 @@ spring:
 
     创建 Pull Request
 
+</div>
 📜 开源协议
+<div align="center">
 
 本项目采用 MIT 开源协议
-☎️ 联系我们
-
-如有任何问题，欢迎通过以下方式联系：
-
-📧 Email: your.email@example.com
-🐛 Issues: 提交Issue
+</div>
