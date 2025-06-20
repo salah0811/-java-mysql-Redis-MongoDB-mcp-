@@ -1,172 +1,136 @@
-```markdown
-# 🧠 Spring Boot AI - Model Context Protocol (MCP) Server
+# ✨ Spring AI MCP 服务
 
-> 基于 Java 和 Spring AI 构建的 Model Context Protocol（MCP）服务，支持与 LLM 工具集成，并整合 Redis、MySQL、MongoDB 等主流数据存储组件。
+<div align="center">
 
----
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](LICENSE)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-6DB33F?style=for-the-badge&logo=spring)](https://spring.io/projects/spring-boot)
+[![Java](https://img.shields.io/badge/Java-17+-007396?style=for-the-badge&logo=openjdk)](https://www.oracle.com/java/)
 
-## 📌 项目简介
+</div>
 
-本项目是一个使用 **Spring Boot + Spring AI** 实现的 **Model Context Protocol (MCP)** 服务端实现，旨在为开发者提供一个可扩展、易部署、功能齐全的本地化模型调用协议服务框架。
+<p align="center">
+  <b>企业级多控制平台解决方案</b><br>
+  <span>整合 Spring AI 与主流数据库的一站式服务</span>
+</p>
 
-该项目解决了当前市面上 Java 领域中对 MCP 协议支持少、文档不完整、缺乏系统性整合的问题，集成了以下核心能力：
+## 🌟 核心特性
 
-- ✅ 支持标准 [Model Context Protocol](https://github.com/Scope-AI/model-context-protocol) 协议通信
-- ✅ 支持 SSE（Server-Sent Events）流式响应
-- ✅ 可对接多种数据库：Redis、MySQL、MongoDB
-- ✅ 提供统一的数据抽象层，便于扩展其他数据源
-- ✅ 提供详细的日志和监控指标支持
-- ✅ 支持 Docker 快速部署
+| 类别           | 功能亮点                                                                 |
+|----------------|--------------------------------------------------------------------------|
+| **AI 核心**    | 🤖 Spring AI 深度整合 • 🧠 多模型支持 • 🔄 异步处理                      |
+| **数据存储**   | 🗃️ MySQL 关系型存储 • 🍃 MongoDB 文档存储 • 🔥 Redis 高速缓存           |
+| **运维监控**   | 🐳 容器化部署 • 📈 Prometheus 指标监控 • 🪵 Grafana 可视化               |
+| **安全认证**   | 🔐 JWT 鉴权 • 🛡️ 角色权限控制 • 📛 请求限流                             |
+| **开发支持**   | 📝 Swagger 文档 • ✉️ 事件驱动架构 • � CI/CD 就绪                        |
 
----
+## 🚀 快速开始
 
-## 🧩 功能特性
-
-| 特性 | 描述 |
-|------|------|
-| 🔧 协议支持 | 完整实现 Model Context Protocol v0.1+ 标准 |
-| 🧱 多数据库集成 | 内置 Redis 缓存、MySQL 持久化、MongoDB 文档存储 |
-| 📊 指标监控 | 集成 Actuator + Micrometer，支持 Prometheus 监控 |
-| 🚀 流式响应 | 使用 SSE（Server-Sent Events）实现实时响应推送 |
-| 📦 容器化部署 | 提供 Dockerfile 和 docker-compose 示例 |
-| 🧪 开发友好 | 提供本地调试配置、单元测试及 API 文档（Swagger/OpenAPI） |
-| 📁 文件管理 | 支持文件上传、下载、检索等基础操作 |
-
----
-
-## 📦 技术栈
-
-| 技术 | 说明 |
-|------|------|
-| Java | JDK 17+ |
-| Spring Boot | 2.x / 3.x 兼容（请根据依赖选择） |
-| Spring Web MVC | 提供 RESTful 接口与 SSE 支持 |
-| Spring Data | 整合 MongoDB、JPA（MySQL） |
-| Spring Cache | 集成 Redis 缓存 |
-| Spring AI | 提供 MCP 协议底层支持 |
-| Maven | 项目构建工具 |
-| Docker | 容器化部署支持 |
-| Swagger UI | 接口文档可视化 |
-
----
-
-## 📥 安装部署
-
-### 1. 本地开发运行
+### 前置要求
+- JDK 17+
+- Maven 3.6+
+- Docker 20.10+
+- MySQL 8.0+
+- MongoDB 4.4+
+- Redis 6.0+
 
 ```bash
-git clone https://github.com/yourname/spring-boot-ai-mcp-server.git
-cd spring-boot-ai-mcp-server
+# 1. 克隆项目
+git clone https://github.com/yourusername/spring-ai-mcp.git
+cd spring-ai-mcp
+
+# 2. 启动依赖服务 (Docker方式)
+docker-compose -f docker/dependencies.yml up -d
+
+# 3. 构建项目
 mvn clean package
-java -jar target/spring-boot-ai-mcp-server.jar
-```
 
-默认访问地址：[http://localhost:8080](http://localhost:8080)
+# 4. 运行服务
+java -jar target/spring-ai-mcp.jar
 
-### 2. Docker 运行
+📂 项目结构
 
-```bash
-docker build -t mcp-server .
-docker run -d -p 8080:8080 mcp-server
-```
+spring-ai-mcp/
+├── src
+│   ├── main
+│   │   ├── java/com/example/mcp
+│   │   │   ├── config       # 配置中心
+│   │   │   ├── controller   # REST接口
+│   │   │   ├── service      # 业务逻辑
+│   │   │   ├── repository   # 数据访问
+│   │   │   └── model        # 数据实体
+│   │   └── resources
+│   │       ├── application.yml    # 主配置
+│   │       └── application-dev.yml # 开发配置
+├── docker                    # 容器化配置
+├── docs                      # 文档资源
+└── scripts                   # 部署脚本
 
-或使用 `docker-compose.yml` 启动整个环境（含数据库）。
 
----
 
-## 🛠️ 配置说明
 
-在 `application.yml` 中配置数据库连接信息：
+🔍 接口示例
+java
 
-```yaml
+@RestController
+@RequestMapping("/api/ai")
+@Tag(name = "AI服务", description = "提供智能交互能力")
+public class AiController {
+
+    @Autowired
+    private ChatClient chatClient;
+    
+    @Operation(summary = "对话接口")
+    @PostMapping("/chat")
+    public Response<String> chat(
+        @Parameter(description = "输入消息") @RequestParam String message
+    ) {
+        return Response.success(chatClient.call(message));
+    }
+}
+
+
+
+📊 数据库整合
+Redis 配置示例
+yaml
+
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    password: 
+    database: 0
+
+MySQL 配置示例
+yaml
+
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/mcp_db
     username: root
-    password: root
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/mcp_mongo
-  redis:
-    host: localhost
-    port: 6379
-```
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
----
+🤝 参与贡献
 
-## 📚 API 文档
+我们欢迎所有形式的贡献！请遵循以下流程：
 
-访问接口文档：
+    Fork 项目仓库
 
-```
-http://localhost:8080/swagger-ui.html
-```
+    创建特性分支 (git checkout -b feature/新功能)
 
-或 OpenAPI JSON 地址：
+    提交代码 (git commit -m '添加很棒的功能')
 
-```
-http://localhost:8080/v3/api-docs
-```
+    推送分支 (git push origin feature/新功能)
 
----
+    创建 Pull Request
 
-## 📈 监控指标
+📜 开源协议
 
-提供如下监控接口：
+本项目采用 MIT 开源协议
+☎️ 联系我们
 
-```
-GET /actuator/health
-GET /actuator/metrics
-GET /actuator/prometheus
-```
+如有任何问题，欢迎通过以下方式联系：
 
----
-
-## 🧪 单元测试
-
-执行测试：
-
-```bash
-mvn test
-```
-
-或查看覆盖率报告（需配置 JaCoCo）：
-
-```bash
-mvn jacoco:report
-```
-
----
-
-## 🤝 贡献指南
-
-欢迎贡献代码、提交 Issue 或 PR！
-
-1. Fork 本仓库
-2. 创建新分支 (`git checkout -b feature/new-feature`)
-3. 提交更改 (`git commit -m 'Add new feature'`)
-4. Push 到远程分支 (`git push origin feature/new-feature`)
-5. 创建 Pull Request
-
----
-
-## 📜 许可证
-
-本项目采用 MIT License，详情见 [LICENSE](LICENSE) 文件。
-
----
-
-## 📣 致谢
-
-感谢以下项目的支持：
-
-- [Spring AI](https://github.com/spring-projects/spring-ai)
-- [Model Context Protocol](https://github.com/Scope-AI/model-context-protocol)
-- [OpenAI](https://openai.com)
-
----
-
-## 📬 联系方式
-
-如有问题，请提交 Issue 或联系作者邮箱：youremail@example.com
-```
+📧 Email: your.email@example.com
+🐛 Issues: 提交Issue
