@@ -9,25 +9,23 @@ spring:
   # MongoDB ??
   data:
     mongodb:
-      uri: mongodb://admin:sl4^,Hi(@172.1.5:2017/lzh?authSource=admin
-
-  # Redis ??
-  redis:
-    host: 172.1
-    port: 6379
-    password:
-    lettuce:
-      pool:
-        max-active: 8
-        max-idle: 8
-        min-idle: 2
-        max-wait: 2000ms
+      uri: mongodb://admin:sl4^,Hi(@172.16.1.5:29017/bjdlzdh?authSource=admin
+    redis:
+      host: 172.16.1.5
+      port: 26379
+      password: sl4^,Hi(
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 2
+          max-wait: 2000ms
 
   # ??????MySQL?
   datasource:
-    url: jdbc:mysql://172.5:3306/devic?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-    username: eb
-    password: 66f@
+    url: jdbc:mysql://172.16.1.5:3306/device_ciic?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: bpae_web
+    password: 001e9028066f@
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   # AI MCP Server ?????
@@ -39,12 +37,18 @@ spring:
 
 # ?????
 server:
-  port: 8080
+  port: 9999
 
 # ????
 logging:
   file:
     name: ./logs/spring-boot-ai-mongo-mcp-server.log
   level:
-    root: DEBUG
-    org.springframework: DEBUG
+    root: INFO
+    org.springframework: INFO
+
+# 禁用 MongoDB 健康检查
+#management:
+#  health:
+#    mongo:
+#      enabled: false
